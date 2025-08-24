@@ -1,7 +1,7 @@
 # 🎬 Personal Movie Catalog (ČSFD)
 
 A web application for managing and browsing my personal list of movies bookmarked on [ČSFD.cz](https://www.csfd.cz/).  
-The app will scrape/fetch movie data from ČSFD and store it in a database, making it easy to filter, search, and visualize movies by genre, year, rating, and other attributes.
+The app will scrape/fetch movie data from ČSFD (using this package: https://github.com/bartholomej/node-csfd-api)and store it in a database, making it easy to filter, search, and visualize movies by genre, year, rating, and other attributes.
 
 ---
 
@@ -52,3 +52,16 @@ interface Movie {
 	fetchedAt: Date; // Last time data was fetched
 }
 ```
+
+Backend Development sequence
+
+1. Initialize backend project (/backend)
+   • npm init -y + TypeScript + Express + Prisma
+   • Set up SQLite database + Prisma schema
+2. Create Movie model in Prisma
+3. Implement scraping utility (a single movie first)
+4. Implement API endpoints
+   • Start with GET /movies + GET /movies/:id
+5. Add import + refresh logic
+   • POST /movies/import
+   • POST /movies/refresh/:id
